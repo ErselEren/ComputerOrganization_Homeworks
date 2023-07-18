@@ -1,0 +1,3 @@
+Info (10281): Verilog HDL Declaration information at mips32_single_cycle.v(6): object "rBtemp" differs only in case from object "rbtemp" in the same scope File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 6
+Info (10281): Verilog HDL Declaration information at mips32_single_cycle.v(6): object "rB" differs only in case from object "RB" in the same scope File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 6
+Info (10281): Verilog HDL Declaration information at mips32_single_cycle.v(6): object "rA" differs only in case from object "RA" in the same scope File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 6

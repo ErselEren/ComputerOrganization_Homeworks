@@ -1,0 +1,1535 @@
+Analysis & Synthesis report for proje4
+Wed Jan 18 16:51:16 2023
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Port Connectivity Checks: "mux_2_x_1:muxc"
+ 11. Port Connectivity Checks: "alu32:alu"
+ 12. Port Connectivity Checks: "control_unit:signal"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+ 16. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Jan 18 16:51:16 2023       ;
+; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                   ; proje4                                      ;
+; Top-level Entity Name           ; mips32_single_cycle                         ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 33                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                              ;
++---------------------------------------------------------------------------------+---------------------+--------------------+
+; Option                                                                          ; Setting             ; Default Value      ;
++---------------------------------------------------------------------------------+---------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8      ;                    ;
+; Top-level entity name                                                           ; mips32_single_cycle ; proje4             ;
+; Family name                                                                     ; Cyclone V           ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                 ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                  ; On                 ;
+; Enable compact report table                                                     ; Off                 ; Off                ;
+; Restructure Multiplexers                                                        ; Auto                ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                 ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                 ; Off                ;
+; Preserve fewer node names                                                       ; On                  ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable              ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001        ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993           ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto                ; Auto               ;
+; Safe State Machine                                                              ; Off                 ; Off                ;
+; Extract Verilog State Machines                                                  ; On                  ; On                 ;
+; Extract VHDL State Machines                                                     ; On                  ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                 ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000                ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                 ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                  ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                  ; On                 ;
+; Parallel Synthesis                                                              ; On                  ; On                 ;
+; DSP Block Balancing                                                             ; Auto                ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                  ; On                 ;
+; Power-Up Don't Care                                                             ; On                  ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                 ; Off                ;
+; Remove Duplicate Registers                                                      ; On                  ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                 ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                 ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                 ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                 ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                 ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                  ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                 ; Off                ;
+; Optimization Technique                                                          ; Balanced            ; Balanced           ;
+; Carry Chain Length                                                              ; 70                  ; 70                 ;
+; Auto Carry Chains                                                               ; On                  ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                  ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                 ; Off                ;
+; Auto ROM Replacement                                                            ; On                  ; On                 ;
+; Auto RAM Replacement                                                            ; On                  ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                  ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto                ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                  ; On                 ;
+; Strict RAM Replacement                                                          ; Off                 ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                  ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                 ; Off                ;
+; Auto Resource Sharing                                                           ; Off                 ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                 ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                 ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                 ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                  ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                 ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                  ; On                 ;
+; Report Parameter Settings                                                       ; On                  ; On                 ;
+; Report Source Assignments                                                       ; On                  ; On                 ;
+; Report Connectivity Checks                                                      ; On                  ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                 ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                   ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation  ; Normal compilation ;
+; HDL message level                                                               ; Level2              ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                 ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                 ; 100                ;
+; Clock MUX Protection                                                            ; On                  ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                 ; Off                ;
+; Block Design Naming                                                             ; Auto                ; Auto               ;
+; SDC constraint protection                                                       ; Off                 ; Off                ;
+; Synthesis Effort                                                                ; Auto                ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                  ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                 ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium              ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                  ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                  ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                 ; Off                ;
++---------------------------------------------------------------------------------+---------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------+---------+
+; xorop.v                          ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/xorop.v                         ;         ;
+; right_shifter.v                  ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/right_shifter.v                 ;         ;
+; orop.v                           ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/orop.v                          ;         ;
+; norop.v                          ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/norop.v                         ;         ;
+; mux_8_x_1.v                      ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/mux_8_x_1.v                     ;         ;
+; mux_2x1.v                        ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/mux_2x1.v                       ;         ;
+; mux_2_x_1.v                      ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/mux_2_x_1.v                     ;         ;
+; left_shifter.v                   ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/left_shifter.v                  ;         ;
+; full_adder.v                     ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/full_adder.v                    ;         ;
+; carry_ripple_adder_subtractor.v  ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/carry_ripple_adder_subtractor.v ;         ;
+; andop2.v                         ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/andop2.v                        ;         ;
+; alu32.v                          ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/alu32.v                         ;         ;
+; mips_registers.v                 ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/mips_registers.v                ;         ;
+; concatane_32_bit.v               ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/concatane_32_bit.v              ;         ;
+; extend_shampt.v                  ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/extend_shampt.v                 ;         ;
+; mux3_bits.v                      ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/mux3_bits.v                     ;         ;
+; instr_mem.v                      ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/instr_mem.v                     ;         ;
+; mips32_single_cycle.v            ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v           ;         ;
+; data_mem.v                       ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/data_mem.v                      ;         ;
+; zero_extend.v                    ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/zero_extend.v                   ;         ;
+; sign_extend_imm.v                ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/sign_extend_imm.v               ;         ;
+; mux5_bits.v                      ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/mux5_bits.v                     ;         ;
+; nextPC.v                         ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/nextPC.v                        ;         ;
+; jump_address.v                   ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/jump_address.v                  ;         ;
+; alu_control.v                    ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/alu_control.v                   ;         ;
+; control_unit.v                   ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/control_unit.v                  ;         ;
+; andop.v                          ; yes             ; User Verilog HDL File  ; C:/Users/ersel/Documents/proje/proje4/andop.v                         ;         ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                    ;
++---------------------------------------------+------------------+
+; Resource                                    ; Usage            ;
++---------------------------------------------+------------------+
+; Estimate of Logic utilization (ALMs needed) ; 0                ;
+;                                             ;                  ;
+; Combinational ALUT usage for logic          ; 0                ;
+;     -- 7 input functions                    ; 0                ;
+;     -- 6 input functions                    ; 0                ;
+;     -- 5 input functions                    ; 0                ;
+;     -- 4 input functions                    ; 0                ;
+;     -- <=3 input functions                  ; 0                ;
+;                                             ;                  ;
+; Dedicated logic registers                   ; 0                ;
+;                                             ;                  ;
+; I/O pins                                    ; 33               ;
+;                                             ;                  ;
+; Total DSP Blocks                            ; 0                ;
+;                                             ;                  ;
+; Maximum fan-out node                        ; result[0]~output ;
+; Maximum fan-out                             ; 1                ;
+; Total fan-out                               ; 33               ;
+; Average fan-out                             ; 0.50             ;
++---------------------------------------------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                             ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------+---------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name  ; Entity Name         ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------+---------------------+--------------+
+; |mips32_single_cycle       ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 33   ; 0            ; |mips32_single_cycle ; mips32_single_cycle ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                ;
++------------------------------------------+----------------------------------------+
+; Register name                            ; Reason for Removal                     ;
++------------------------------------------+----------------------------------------+
+; mips_registers:mips|registers~32         ; Lost fanout                            ;
+; mips_registers:mips|registers~33         ; Lost fanout                            ;
+; mips_registers:mips|registers~34         ; Lost fanout                            ;
+; mips_registers:mips|registers~35         ; Lost fanout                            ;
+; mips_registers:mips|registers~36         ; Lost fanout                            ;
+; mips_registers:mips|registers~37         ; Lost fanout                            ;
+; mips_registers:mips|registers~38         ; Lost fanout                            ;
+; mips_registers:mips|registers~39         ; Lost fanout                            ;
+; mips_registers:mips|registers~40         ; Lost fanout                            ;
+; mips_registers:mips|registers~41         ; Lost fanout                            ;
+; mips_registers:mips|registers~42         ; Lost fanout                            ;
+; mips_registers:mips|registers~43         ; Lost fanout                            ;
+; mips_registers:mips|registers~44         ; Lost fanout                            ;
+; mips_registers:mips|registers~45         ; Lost fanout                            ;
+; mips_registers:mips|registers~46         ; Lost fanout                            ;
+; mips_registers:mips|registers~47         ; Lost fanout                            ;
+; mips_registers:mips|registers~48         ; Lost fanout                            ;
+; mips_registers:mips|registers~49         ; Lost fanout                            ;
+; mips_registers:mips|registers~50         ; Lost fanout                            ;
+; mips_registers:mips|registers~51         ; Lost fanout                            ;
+; mips_registers:mips|registers~52         ; Lost fanout                            ;
+; mips_registers:mips|registers~53         ; Lost fanout                            ;
+; mips_registers:mips|registers~54         ; Lost fanout                            ;
+; mips_registers:mips|registers~55         ; Lost fanout                            ;
+; mips_registers:mips|registers~56         ; Lost fanout                            ;
+; mips_registers:mips|registers~57         ; Lost fanout                            ;
+; mips_registers:mips|registers~58         ; Lost fanout                            ;
+; mips_registers:mips|registers~59         ; Lost fanout                            ;
+; mips_registers:mips|registers~60         ; Lost fanout                            ;
+; mips_registers:mips|registers~61         ; Lost fanout                            ;
+; mips_registers:mips|registers~62         ; Lost fanout                            ;
+; mips_registers:mips|registers~63         ; Lost fanout                            ;
+; mips_registers:mips|registers~64         ; Lost fanout                            ;
+; mips_registers:mips|registers~65         ; Lost fanout                            ;
+; mips_registers:mips|registers~66         ; Lost fanout                            ;
+; mips_registers:mips|registers~67         ; Lost fanout                            ;
+; mips_registers:mips|registers~68         ; Lost fanout                            ;
+; mips_registers:mips|registers~69         ; Lost fanout                            ;
+; mips_registers:mips|registers~70         ; Lost fanout                            ;
+; mips_registers:mips|registers~71         ; Lost fanout                            ;
+; mips_registers:mips|registers~72         ; Lost fanout                            ;
+; mips_registers:mips|registers~73         ; Lost fanout                            ;
+; mips_registers:mips|registers~74         ; Lost fanout                            ;
+; mips_registers:mips|registers~75         ; Lost fanout                            ;
+; mips_registers:mips|registers~76         ; Lost fanout                            ;
+; mips_registers:mips|registers~77         ; Lost fanout                            ;
+; mips_registers:mips|registers~78         ; Lost fanout                            ;
+; mips_registers:mips|registers~79         ; Lost fanout                            ;
+; mips_registers:mips|registers~80         ; Lost fanout                            ;
+; mips_registers:mips|registers~81         ; Lost fanout                            ;
+; mips_registers:mips|registers~82         ; Lost fanout                            ;
+; mips_registers:mips|registers~83         ; Lost fanout                            ;
+; mips_registers:mips|registers~84         ; Lost fanout                            ;
+; mips_registers:mips|registers~85         ; Lost fanout                            ;
+; mips_registers:mips|registers~86         ; Lost fanout                            ;
+; mips_registers:mips|registers~87         ; Lost fanout                            ;
+; mips_registers:mips|registers~88         ; Lost fanout                            ;
+; mips_registers:mips|registers~89         ; Lost fanout                            ;
+; mips_registers:mips|registers~90         ; Lost fanout                            ;
+; mips_registers:mips|registers~91         ; Lost fanout                            ;
+; mips_registers:mips|registers~92         ; Lost fanout                            ;
+; mips_registers:mips|registers~93         ; Lost fanout                            ;
+; mips_registers:mips|registers~94         ; Lost fanout                            ;
+; mips_registers:mips|registers~95         ; Lost fanout                            ;
+; mips_registers:mips|registers~96         ; Lost fanout                            ;
+; mips_registers:mips|registers~97         ; Lost fanout                            ;
+; mips_registers:mips|registers~98         ; Lost fanout                            ;
+; mips_registers:mips|registers~99         ; Lost fanout                            ;
+; mips_registers:mips|registers~100        ; Lost fanout                            ;
+; mips_registers:mips|registers~101        ; Lost fanout                            ;
+; mips_registers:mips|registers~102        ; Lost fanout                            ;
+; mips_registers:mips|registers~103        ; Lost fanout                            ;
+; mips_registers:mips|registers~104        ; Lost fanout                            ;
+; mips_registers:mips|registers~105        ; Lost fanout                            ;
+; mips_registers:mips|registers~106        ; Lost fanout                            ;
+; mips_registers:mips|registers~107        ; Lost fanout                            ;
+; mips_registers:mips|registers~108        ; Lost fanout                            ;
+; mips_registers:mips|registers~109        ; Lost fanout                            ;
+; mips_registers:mips|registers~110        ; Lost fanout                            ;
+; mips_registers:mips|registers~111        ; Lost fanout                            ;
+; mips_registers:mips|registers~112        ; Lost fanout                            ;
+; mips_registers:mips|registers~113        ; Lost fanout                            ;
+; mips_registers:mips|registers~114        ; Lost fanout                            ;
+; mips_registers:mips|registers~115        ; Lost fanout                            ;
+; mips_registers:mips|registers~116        ; Lost fanout                            ;
+; mips_registers:mips|registers~117        ; Lost fanout                            ;
+; mips_registers:mips|registers~118        ; Lost fanout                            ;
+; mips_registers:mips|registers~119        ; Lost fanout                            ;
+; mips_registers:mips|registers~120        ; Lost fanout                            ;
+; mips_registers:mips|registers~121        ; Lost fanout                            ;
+; mips_registers:mips|registers~122        ; Lost fanout                            ;
+; mips_registers:mips|registers~123        ; Lost fanout                            ;
+; mips_registers:mips|registers~124        ; Lost fanout                            ;
+; mips_registers:mips|registers~125        ; Lost fanout                            ;
+; mips_registers:mips|registers~126        ; Lost fanout                            ;
+; mips_registers:mips|registers~127        ; Lost fanout                            ;
+; mips_registers:mips|registers~128        ; Lost fanout                            ;
+; mips_registers:mips|registers~129        ; Lost fanout                            ;
+; mips_registers:mips|registers~130        ; Lost fanout                            ;
+; mips_registers:mips|registers~131        ; Lost fanout                            ;
+; mips_registers:mips|registers~132        ; Lost fanout                            ;
+; mips_registers:mips|registers~133        ; Lost fanout                            ;
+; mips_registers:mips|registers~134        ; Lost fanout                            ;
+; mips_registers:mips|registers~135        ; Lost fanout                            ;
+; mips_registers:mips|registers~136        ; Lost fanout                            ;
+; mips_registers:mips|registers~137        ; Lost fanout                            ;
+; mips_registers:mips|registers~138        ; Lost fanout                            ;
+; mips_registers:mips|registers~139        ; Lost fanout                            ;
+; mips_registers:mips|registers~140        ; Lost fanout                            ;
+; mips_registers:mips|registers~141        ; Lost fanout                            ;
+; mips_registers:mips|registers~142        ; Lost fanout                            ;
+; mips_registers:mips|registers~143        ; Lost fanout                            ;
+; mips_registers:mips|registers~144        ; Lost fanout                            ;
+; mips_registers:mips|registers~145        ; Lost fanout                            ;
+; mips_registers:mips|registers~146        ; Lost fanout                            ;
+; mips_registers:mips|registers~147        ; Lost fanout                            ;
+; mips_registers:mips|registers~148        ; Lost fanout                            ;
+; mips_registers:mips|registers~149        ; Lost fanout                            ;
+; mips_registers:mips|registers~150        ; Lost fanout                            ;
+; mips_registers:mips|registers~151        ; Lost fanout                            ;
+; mips_registers:mips|registers~152        ; Lost fanout                            ;
+; mips_registers:mips|registers~153        ; Lost fanout                            ;
+; mips_registers:mips|registers~154        ; Lost fanout                            ;
+; mips_registers:mips|registers~155        ; Lost fanout                            ;
+; mips_registers:mips|registers~156        ; Lost fanout                            ;
+; mips_registers:mips|registers~157        ; Lost fanout                            ;
+; mips_registers:mips|registers~158        ; Lost fanout                            ;
+; mips_registers:mips|registers~159        ; Lost fanout                            ;
+; mips_registers:mips|registers~160        ; Lost fanout                            ;
+; mips_registers:mips|registers~161        ; Lost fanout                            ;
+; mips_registers:mips|registers~162        ; Lost fanout                            ;
+; mips_registers:mips|registers~163        ; Lost fanout                            ;
+; mips_registers:mips|registers~164        ; Lost fanout                            ;
+; mips_registers:mips|registers~165        ; Lost fanout                            ;
+; mips_registers:mips|registers~166        ; Lost fanout                            ;
+; mips_registers:mips|registers~167        ; Lost fanout                            ;
+; mips_registers:mips|registers~168        ; Lost fanout                            ;
+; mips_registers:mips|registers~169        ; Lost fanout                            ;
+; mips_registers:mips|registers~170        ; Lost fanout                            ;
+; mips_registers:mips|registers~171        ; Lost fanout                            ;
+; mips_registers:mips|registers~172        ; Lost fanout                            ;
+; mips_registers:mips|registers~173        ; Lost fanout                            ;
+; mips_registers:mips|registers~174        ; Lost fanout                            ;
+; mips_registers:mips|registers~175        ; Lost fanout                            ;
+; mips_registers:mips|registers~176        ; Lost fanout                            ;
+; mips_registers:mips|registers~177        ; Lost fanout                            ;
+; mips_registers:mips|registers~178        ; Lost fanout                            ;
+; mips_registers:mips|registers~179        ; Lost fanout                            ;
+; mips_registers:mips|registers~180        ; Lost fanout                            ;
+; mips_registers:mips|registers~181        ; Lost fanout                            ;
+; mips_registers:mips|registers~182        ; Lost fanout                            ;
+; mips_registers:mips|registers~183        ; Lost fanout                            ;
+; mips_registers:mips|registers~184        ; Lost fanout                            ;
+; mips_registers:mips|registers~185        ; Lost fanout                            ;
+; mips_registers:mips|registers~186        ; Lost fanout                            ;
+; mips_registers:mips|registers~187        ; Lost fanout                            ;
+; mips_registers:mips|registers~188        ; Lost fanout                            ;
+; mips_registers:mips|registers~189        ; Lost fanout                            ;
+; mips_registers:mips|registers~190        ; Lost fanout                            ;
+; mips_registers:mips|registers~191        ; Lost fanout                            ;
+; mips_registers:mips|registers~192        ; Lost fanout                            ;
+; mips_registers:mips|registers~193        ; Lost fanout                            ;
+; mips_registers:mips|registers~194        ; Lost fanout                            ;
+; mips_registers:mips|registers~195        ; Lost fanout                            ;
+; mips_registers:mips|registers~196        ; Lost fanout                            ;
+; mips_registers:mips|registers~197        ; Lost fanout                            ;
+; mips_registers:mips|registers~198        ; Lost fanout                            ;
+; mips_registers:mips|registers~199        ; Lost fanout                            ;
+; mips_registers:mips|registers~200        ; Lost fanout                            ;
+; mips_registers:mips|registers~201        ; Lost fanout                            ;
+; mips_registers:mips|registers~202        ; Lost fanout                            ;
+; mips_registers:mips|registers~203        ; Lost fanout                            ;
+; mips_registers:mips|registers~204        ; Lost fanout                            ;
+; mips_registers:mips|registers~205        ; Lost fanout                            ;
+; mips_registers:mips|registers~206        ; Lost fanout                            ;
+; mips_registers:mips|registers~207        ; Lost fanout                            ;
+; mips_registers:mips|registers~208        ; Lost fanout                            ;
+; mips_registers:mips|registers~209        ; Lost fanout                            ;
+; mips_registers:mips|registers~210        ; Lost fanout                            ;
+; mips_registers:mips|registers~211        ; Lost fanout                            ;
+; mips_registers:mips|registers~212        ; Lost fanout                            ;
+; mips_registers:mips|registers~213        ; Lost fanout                            ;
+; mips_registers:mips|registers~214        ; Lost fanout                            ;
+; mips_registers:mips|registers~215        ; Lost fanout                            ;
+; mips_registers:mips|registers~216        ; Lost fanout                            ;
+; mips_registers:mips|registers~217        ; Lost fanout                            ;
+; mips_registers:mips|registers~218        ; Lost fanout                            ;
+; mips_registers:mips|registers~219        ; Lost fanout                            ;
+; mips_registers:mips|registers~220        ; Lost fanout                            ;
+; mips_registers:mips|registers~221        ; Lost fanout                            ;
+; mips_registers:mips|registers~222        ; Lost fanout                            ;
+; mips_registers:mips|registers~223        ; Lost fanout                            ;
+; mips_registers:mips|registers~224        ; Lost fanout                            ;
+; mips_registers:mips|registers~225        ; Lost fanout                            ;
+; mips_registers:mips|registers~226        ; Lost fanout                            ;
+; mips_registers:mips|registers~227        ; Lost fanout                            ;
+; mips_registers:mips|registers~228        ; Lost fanout                            ;
+; mips_registers:mips|registers~229        ; Lost fanout                            ;
+; mips_registers:mips|registers~230        ; Lost fanout                            ;
+; mips_registers:mips|registers~231        ; Lost fanout                            ;
+; mips_registers:mips|registers~232        ; Lost fanout                            ;
+; mips_registers:mips|registers~233        ; Lost fanout                            ;
+; mips_registers:mips|registers~234        ; Lost fanout                            ;
+; mips_registers:mips|registers~235        ; Lost fanout                            ;
+; mips_registers:mips|registers~236        ; Lost fanout                            ;
+; mips_registers:mips|registers~237        ; Lost fanout                            ;
+; mips_registers:mips|registers~238        ; Lost fanout                            ;
+; mips_registers:mips|registers~239        ; Lost fanout                            ;
+; mips_registers:mips|registers~240        ; Lost fanout                            ;
+; mips_registers:mips|registers~241        ; Lost fanout                            ;
+; mips_registers:mips|registers~242        ; Lost fanout                            ;
+; mips_registers:mips|registers~243        ; Lost fanout                            ;
+; mips_registers:mips|registers~244        ; Lost fanout                            ;
+; mips_registers:mips|registers~245        ; Lost fanout                            ;
+; mips_registers:mips|registers~246        ; Lost fanout                            ;
+; mips_registers:mips|registers~247        ; Lost fanout                            ;
+; mips_registers:mips|registers~248        ; Lost fanout                            ;
+; mips_registers:mips|registers~249        ; Lost fanout                            ;
+; mips_registers:mips|registers~250        ; Lost fanout                            ;
+; mips_registers:mips|registers~251        ; Lost fanout                            ;
+; mips_registers:mips|registers~252        ; Lost fanout                            ;
+; mips_registers:mips|registers~253        ; Lost fanout                            ;
+; mips_registers:mips|registers~254        ; Lost fanout                            ;
+; mips_registers:mips|registers~255        ; Lost fanout                            ;
+; mips_registers:mips|registers~256        ; Lost fanout                            ;
+; mips_registers:mips|registers~257        ; Lost fanout                            ;
+; mips_registers:mips|registers~258        ; Lost fanout                            ;
+; mips_registers:mips|registers~259        ; Lost fanout                            ;
+; mips_registers:mips|registers~260        ; Lost fanout                            ;
+; mips_registers:mips|registers~261        ; Lost fanout                            ;
+; mips_registers:mips|registers~262        ; Lost fanout                            ;
+; mips_registers:mips|registers~263        ; Lost fanout                            ;
+; mips_registers:mips|registers~264        ; Lost fanout                            ;
+; mips_registers:mips|registers~265        ; Lost fanout                            ;
+; mips_registers:mips|registers~266        ; Lost fanout                            ;
+; mips_registers:mips|registers~267        ; Lost fanout                            ;
+; mips_registers:mips|registers~268        ; Lost fanout                            ;
+; mips_registers:mips|registers~269        ; Lost fanout                            ;
+; mips_registers:mips|registers~270        ; Lost fanout                            ;
+; mips_registers:mips|registers~271        ; Lost fanout                            ;
+; mips_registers:mips|registers~272        ; Lost fanout                            ;
+; mips_registers:mips|registers~273        ; Lost fanout                            ;
+; mips_registers:mips|registers~274        ; Lost fanout                            ;
+; mips_registers:mips|registers~275        ; Lost fanout                            ;
+; mips_registers:mips|registers~276        ; Lost fanout                            ;
+; mips_registers:mips|registers~277        ; Lost fanout                            ;
+; mips_registers:mips|registers~278        ; Lost fanout                            ;
+; mips_registers:mips|registers~279        ; Lost fanout                            ;
+; mips_registers:mips|registers~280        ; Lost fanout                            ;
+; mips_registers:mips|registers~281        ; Lost fanout                            ;
+; mips_registers:mips|registers~282        ; Lost fanout                            ;
+; mips_registers:mips|registers~283        ; Lost fanout                            ;
+; mips_registers:mips|registers~284        ; Lost fanout                            ;
+; mips_registers:mips|registers~285        ; Lost fanout                            ;
+; mips_registers:mips|registers~286        ; Lost fanout                            ;
+; mips_registers:mips|registers~287        ; Lost fanout                            ;
+; mips_registers:mips|registers~288        ; Lost fanout                            ;
+; mips_registers:mips|registers~289        ; Lost fanout                            ;
+; mips_registers:mips|registers~290        ; Lost fanout                            ;
+; mips_registers:mips|registers~291        ; Lost fanout                            ;
+; mips_registers:mips|registers~292        ; Lost fanout                            ;
+; mips_registers:mips|registers~293        ; Lost fanout                            ;
+; mips_registers:mips|registers~294        ; Lost fanout                            ;
+; mips_registers:mips|registers~295        ; Lost fanout                            ;
+; mips_registers:mips|registers~296        ; Lost fanout                            ;
+; mips_registers:mips|registers~297        ; Lost fanout                            ;
+; mips_registers:mips|registers~298        ; Lost fanout                            ;
+; mips_registers:mips|registers~299        ; Lost fanout                            ;
+; mips_registers:mips|registers~300        ; Lost fanout                            ;
+; mips_registers:mips|registers~301        ; Lost fanout                            ;
+; mips_registers:mips|registers~302        ; Lost fanout                            ;
+; mips_registers:mips|registers~303        ; Lost fanout                            ;
+; mips_registers:mips|registers~304        ; Lost fanout                            ;
+; mips_registers:mips|registers~305        ; Lost fanout                            ;
+; mips_registers:mips|registers~306        ; Lost fanout                            ;
+; mips_registers:mips|registers~307        ; Lost fanout                            ;
+; mips_registers:mips|registers~308        ; Lost fanout                            ;
+; mips_registers:mips|registers~309        ; Lost fanout                            ;
+; mips_registers:mips|registers~310        ; Lost fanout                            ;
+; mips_registers:mips|registers~311        ; Lost fanout                            ;
+; mips_registers:mips|registers~312        ; Lost fanout                            ;
+; mips_registers:mips|registers~313        ; Lost fanout                            ;
+; mips_registers:mips|registers~314        ; Lost fanout                            ;
+; mips_registers:mips|registers~315        ; Lost fanout                            ;
+; mips_registers:mips|registers~316        ; Lost fanout                            ;
+; mips_registers:mips|registers~317        ; Lost fanout                            ;
+; mips_registers:mips|registers~318        ; Lost fanout                            ;
+; mips_registers:mips|registers~319        ; Lost fanout                            ;
+; mips_registers:mips|registers~320        ; Lost fanout                            ;
+; mips_registers:mips|registers~321        ; Lost fanout                            ;
+; mips_registers:mips|registers~322        ; Lost fanout                            ;
+; mips_registers:mips|registers~323        ; Lost fanout                            ;
+; mips_registers:mips|registers~324        ; Lost fanout                            ;
+; mips_registers:mips|registers~325        ; Lost fanout                            ;
+; mips_registers:mips|registers~326        ; Lost fanout                            ;
+; mips_registers:mips|registers~327        ; Lost fanout                            ;
+; mips_registers:mips|registers~328        ; Lost fanout                            ;
+; mips_registers:mips|registers~329        ; Lost fanout                            ;
+; mips_registers:mips|registers~330        ; Lost fanout                            ;
+; mips_registers:mips|registers~331        ; Lost fanout                            ;
+; mips_registers:mips|registers~332        ; Lost fanout                            ;
+; mips_registers:mips|registers~333        ; Lost fanout                            ;
+; mips_registers:mips|registers~334        ; Lost fanout                            ;
+; mips_registers:mips|registers~335        ; Lost fanout                            ;
+; mips_registers:mips|registers~336        ; Lost fanout                            ;
+; mips_registers:mips|registers~337        ; Lost fanout                            ;
+; mips_registers:mips|registers~338        ; Lost fanout                            ;
+; mips_registers:mips|registers~339        ; Lost fanout                            ;
+; mips_registers:mips|registers~340        ; Lost fanout                            ;
+; mips_registers:mips|registers~341        ; Lost fanout                            ;
+; mips_registers:mips|registers~342        ; Lost fanout                            ;
+; mips_registers:mips|registers~343        ; Lost fanout                            ;
+; mips_registers:mips|registers~344        ; Lost fanout                            ;
+; mips_registers:mips|registers~345        ; Lost fanout                            ;
+; mips_registers:mips|registers~346        ; Lost fanout                            ;
+; mips_registers:mips|registers~347        ; Lost fanout                            ;
+; mips_registers:mips|registers~348        ; Lost fanout                            ;
+; mips_registers:mips|registers~349        ; Lost fanout                            ;
+; mips_registers:mips|registers~350        ; Lost fanout                            ;
+; mips_registers:mips|registers~351        ; Lost fanout                            ;
+; mips_registers:mips|registers~352        ; Lost fanout                            ;
+; mips_registers:mips|registers~353        ; Lost fanout                            ;
+; mips_registers:mips|registers~354        ; Lost fanout                            ;
+; mips_registers:mips|registers~355        ; Lost fanout                            ;
+; mips_registers:mips|registers~356        ; Lost fanout                            ;
+; mips_registers:mips|registers~357        ; Lost fanout                            ;
+; mips_registers:mips|registers~358        ; Lost fanout                            ;
+; mips_registers:mips|registers~359        ; Lost fanout                            ;
+; mips_registers:mips|registers~360        ; Lost fanout                            ;
+; mips_registers:mips|registers~361        ; Lost fanout                            ;
+; mips_registers:mips|registers~362        ; Lost fanout                            ;
+; mips_registers:mips|registers~363        ; Lost fanout                            ;
+; mips_registers:mips|registers~364        ; Lost fanout                            ;
+; mips_registers:mips|registers~365        ; Lost fanout                            ;
+; mips_registers:mips|registers~366        ; Lost fanout                            ;
+; mips_registers:mips|registers~367        ; Lost fanout                            ;
+; mips_registers:mips|registers~368        ; Lost fanout                            ;
+; mips_registers:mips|registers~369        ; Lost fanout                            ;
+; mips_registers:mips|registers~370        ; Lost fanout                            ;
+; mips_registers:mips|registers~371        ; Lost fanout                            ;
+; mips_registers:mips|registers~372        ; Lost fanout                            ;
+; mips_registers:mips|registers~373        ; Lost fanout                            ;
+; mips_registers:mips|registers~374        ; Lost fanout                            ;
+; mips_registers:mips|registers~375        ; Lost fanout                            ;
+; mips_registers:mips|registers~376        ; Lost fanout                            ;
+; mips_registers:mips|registers~377        ; Lost fanout                            ;
+; mips_registers:mips|registers~378        ; Lost fanout                            ;
+; mips_registers:mips|registers~379        ; Lost fanout                            ;
+; mips_registers:mips|registers~380        ; Lost fanout                            ;
+; mips_registers:mips|registers~381        ; Lost fanout                            ;
+; mips_registers:mips|registers~382        ; Lost fanout                            ;
+; mips_registers:mips|registers~383        ; Lost fanout                            ;
+; mips_registers:mips|registers~384        ; Lost fanout                            ;
+; mips_registers:mips|registers~385        ; Lost fanout                            ;
+; mips_registers:mips|registers~386        ; Lost fanout                            ;
+; mips_registers:mips|registers~387        ; Lost fanout                            ;
+; mips_registers:mips|registers~388        ; Lost fanout                            ;
+; mips_registers:mips|registers~389        ; Lost fanout                            ;
+; mips_registers:mips|registers~390        ; Lost fanout                            ;
+; mips_registers:mips|registers~391        ; Lost fanout                            ;
+; mips_registers:mips|registers~392        ; Lost fanout                            ;
+; mips_registers:mips|registers~393        ; Lost fanout                            ;
+; mips_registers:mips|registers~394        ; Lost fanout                            ;
+; mips_registers:mips|registers~395        ; Lost fanout                            ;
+; mips_registers:mips|registers~396        ; Lost fanout                            ;
+; mips_registers:mips|registers~397        ; Lost fanout                            ;
+; mips_registers:mips|registers~398        ; Lost fanout                            ;
+; mips_registers:mips|registers~399        ; Lost fanout                            ;
+; mips_registers:mips|registers~400        ; Lost fanout                            ;
+; mips_registers:mips|registers~401        ; Lost fanout                            ;
+; mips_registers:mips|registers~402        ; Lost fanout                            ;
+; mips_registers:mips|registers~403        ; Lost fanout                            ;
+; mips_registers:mips|registers~404        ; Lost fanout                            ;
+; mips_registers:mips|registers~405        ; Lost fanout                            ;
+; mips_registers:mips|registers~406        ; Lost fanout                            ;
+; mips_registers:mips|registers~407        ; Lost fanout                            ;
+; mips_registers:mips|registers~408        ; Lost fanout                            ;
+; mips_registers:mips|registers~409        ; Lost fanout                            ;
+; mips_registers:mips|registers~410        ; Lost fanout                            ;
+; mips_registers:mips|registers~411        ; Lost fanout                            ;
+; mips_registers:mips|registers~412        ; Lost fanout                            ;
+; mips_registers:mips|registers~413        ; Lost fanout                            ;
+; mips_registers:mips|registers~414        ; Lost fanout                            ;
+; mips_registers:mips|registers~415        ; Lost fanout                            ;
+; mips_registers:mips|registers~416        ; Lost fanout                            ;
+; mips_registers:mips|registers~417        ; Lost fanout                            ;
+; mips_registers:mips|registers~418        ; Lost fanout                            ;
+; mips_registers:mips|registers~419        ; Lost fanout                            ;
+; mips_registers:mips|registers~420        ; Lost fanout                            ;
+; mips_registers:mips|registers~421        ; Lost fanout                            ;
+; mips_registers:mips|registers~422        ; Lost fanout                            ;
+; mips_registers:mips|registers~423        ; Lost fanout                            ;
+; mips_registers:mips|registers~424        ; Lost fanout                            ;
+; mips_registers:mips|registers~425        ; Lost fanout                            ;
+; mips_registers:mips|registers~426        ; Lost fanout                            ;
+; mips_registers:mips|registers~427        ; Lost fanout                            ;
+; mips_registers:mips|registers~428        ; Lost fanout                            ;
+; mips_registers:mips|registers~429        ; Lost fanout                            ;
+; mips_registers:mips|registers~430        ; Lost fanout                            ;
+; mips_registers:mips|registers~431        ; Lost fanout                            ;
+; mips_registers:mips|registers~432        ; Lost fanout                            ;
+; mips_registers:mips|registers~433        ; Lost fanout                            ;
+; mips_registers:mips|registers~434        ; Lost fanout                            ;
+; mips_registers:mips|registers~435        ; Lost fanout                            ;
+; mips_registers:mips|registers~436        ; Lost fanout                            ;
+; mips_registers:mips|registers~437        ; Lost fanout                            ;
+; mips_registers:mips|registers~438        ; Lost fanout                            ;
+; mips_registers:mips|registers~439        ; Lost fanout                            ;
+; mips_registers:mips|registers~440        ; Lost fanout                            ;
+; mips_registers:mips|registers~441        ; Lost fanout                            ;
+; mips_registers:mips|registers~442        ; Lost fanout                            ;
+; mips_registers:mips|registers~443        ; Lost fanout                            ;
+; mips_registers:mips|registers~444        ; Lost fanout                            ;
+; mips_registers:mips|registers~445        ; Lost fanout                            ;
+; mips_registers:mips|registers~446        ; Lost fanout                            ;
+; mips_registers:mips|registers~447        ; Lost fanout                            ;
+; mips_registers:mips|registers~448        ; Lost fanout                            ;
+; mips_registers:mips|registers~449        ; Lost fanout                            ;
+; mips_registers:mips|registers~450        ; Lost fanout                            ;
+; mips_registers:mips|registers~451        ; Lost fanout                            ;
+; mips_registers:mips|registers~452        ; Lost fanout                            ;
+; mips_registers:mips|registers~453        ; Lost fanout                            ;
+; mips_registers:mips|registers~454        ; Lost fanout                            ;
+; mips_registers:mips|registers~455        ; Lost fanout                            ;
+; mips_registers:mips|registers~456        ; Lost fanout                            ;
+; mips_registers:mips|registers~457        ; Lost fanout                            ;
+; mips_registers:mips|registers~458        ; Lost fanout                            ;
+; mips_registers:mips|registers~459        ; Lost fanout                            ;
+; mips_registers:mips|registers~460        ; Lost fanout                            ;
+; mips_registers:mips|registers~461        ; Lost fanout                            ;
+; mips_registers:mips|registers~462        ; Lost fanout                            ;
+; mips_registers:mips|registers~463        ; Lost fanout                            ;
+; mips_registers:mips|registers~464        ; Lost fanout                            ;
+; mips_registers:mips|registers~465        ; Lost fanout                            ;
+; mips_registers:mips|registers~466        ; Lost fanout                            ;
+; mips_registers:mips|registers~467        ; Lost fanout                            ;
+; mips_registers:mips|registers~468        ; Lost fanout                            ;
+; mips_registers:mips|registers~469        ; Lost fanout                            ;
+; mips_registers:mips|registers~470        ; Lost fanout                            ;
+; mips_registers:mips|registers~471        ; Lost fanout                            ;
+; mips_registers:mips|registers~472        ; Lost fanout                            ;
+; mips_registers:mips|registers~473        ; Lost fanout                            ;
+; mips_registers:mips|registers~474        ; Lost fanout                            ;
+; mips_registers:mips|registers~475        ; Lost fanout                            ;
+; mips_registers:mips|registers~476        ; Lost fanout                            ;
+; mips_registers:mips|registers~477        ; Lost fanout                            ;
+; mips_registers:mips|registers~478        ; Lost fanout                            ;
+; mips_registers:mips|registers~479        ; Lost fanout                            ;
+; mips_registers:mips|registers~480        ; Lost fanout                            ;
+; mips_registers:mips|registers~481        ; Lost fanout                            ;
+; mips_registers:mips|registers~482        ; Lost fanout                            ;
+; mips_registers:mips|registers~483        ; Lost fanout                            ;
+; mips_registers:mips|registers~484        ; Lost fanout                            ;
+; mips_registers:mips|registers~485        ; Lost fanout                            ;
+; mips_registers:mips|registers~486        ; Lost fanout                            ;
+; mips_registers:mips|registers~487        ; Lost fanout                            ;
+; mips_registers:mips|registers~488        ; Lost fanout                            ;
+; mips_registers:mips|registers~489        ; Lost fanout                            ;
+; mips_registers:mips|registers~490        ; Lost fanout                            ;
+; mips_registers:mips|registers~491        ; Lost fanout                            ;
+; mips_registers:mips|registers~492        ; Lost fanout                            ;
+; mips_registers:mips|registers~493        ; Lost fanout                            ;
+; mips_registers:mips|registers~494        ; Lost fanout                            ;
+; mips_registers:mips|registers~495        ; Lost fanout                            ;
+; mips_registers:mips|registers~496        ; Lost fanout                            ;
+; mips_registers:mips|registers~497        ; Lost fanout                            ;
+; mips_registers:mips|registers~498        ; Lost fanout                            ;
+; mips_registers:mips|registers~499        ; Lost fanout                            ;
+; mips_registers:mips|registers~500        ; Lost fanout                            ;
+; mips_registers:mips|registers~501        ; Lost fanout                            ;
+; mips_registers:mips|registers~502        ; Lost fanout                            ;
+; mips_registers:mips|registers~503        ; Lost fanout                            ;
+; mips_registers:mips|registers~504        ; Lost fanout                            ;
+; mips_registers:mips|registers~505        ; Lost fanout                            ;
+; mips_registers:mips|registers~506        ; Lost fanout                            ;
+; mips_registers:mips|registers~507        ; Lost fanout                            ;
+; mips_registers:mips|registers~508        ; Lost fanout                            ;
+; mips_registers:mips|registers~509        ; Lost fanout                            ;
+; mips_registers:mips|registers~510        ; Lost fanout                            ;
+; mips_registers:mips|registers~511        ; Lost fanout                            ;
+; mips_registers:mips|registers~512        ; Lost fanout                            ;
+; mips_registers:mips|registers~513        ; Lost fanout                            ;
+; mips_registers:mips|registers~514        ; Lost fanout                            ;
+; mips_registers:mips|registers~515        ; Lost fanout                            ;
+; mips_registers:mips|registers~516        ; Lost fanout                            ;
+; mips_registers:mips|registers~517        ; Lost fanout                            ;
+; mips_registers:mips|registers~518        ; Lost fanout                            ;
+; mips_registers:mips|registers~519        ; Lost fanout                            ;
+; mips_registers:mips|registers~520        ; Lost fanout                            ;
+; mips_registers:mips|registers~521        ; Lost fanout                            ;
+; mips_registers:mips|registers~522        ; Lost fanout                            ;
+; mips_registers:mips|registers~523        ; Lost fanout                            ;
+; mips_registers:mips|registers~524        ; Lost fanout                            ;
+; mips_registers:mips|registers~525        ; Lost fanout                            ;
+; mips_registers:mips|registers~526        ; Lost fanout                            ;
+; mips_registers:mips|registers~527        ; Lost fanout                            ;
+; mips_registers:mips|registers~528        ; Lost fanout                            ;
+; mips_registers:mips|registers~529        ; Lost fanout                            ;
+; mips_registers:mips|registers~530        ; Lost fanout                            ;
+; mips_registers:mips|registers~531        ; Lost fanout                            ;
+; mips_registers:mips|registers~532        ; Lost fanout                            ;
+; mips_registers:mips|registers~533        ; Lost fanout                            ;
+; mips_registers:mips|registers~534        ; Lost fanout                            ;
+; mips_registers:mips|registers~535        ; Lost fanout                            ;
+; mips_registers:mips|registers~536        ; Lost fanout                            ;
+; mips_registers:mips|registers~537        ; Lost fanout                            ;
+; mips_registers:mips|registers~538        ; Lost fanout                            ;
+; mips_registers:mips|registers~539        ; Lost fanout                            ;
+; mips_registers:mips|registers~540        ; Lost fanout                            ;
+; mips_registers:mips|registers~541        ; Lost fanout                            ;
+; mips_registers:mips|registers~542        ; Lost fanout                            ;
+; mips_registers:mips|registers~543        ; Lost fanout                            ;
+; mips_registers:mips|registers~544        ; Lost fanout                            ;
+; mips_registers:mips|registers~545        ; Lost fanout                            ;
+; mips_registers:mips|registers~546        ; Lost fanout                            ;
+; mips_registers:mips|registers~547        ; Lost fanout                            ;
+; mips_registers:mips|registers~548        ; Lost fanout                            ;
+; mips_registers:mips|registers~549        ; Lost fanout                            ;
+; mips_registers:mips|registers~550        ; Lost fanout                            ;
+; mips_registers:mips|registers~551        ; Lost fanout                            ;
+; mips_registers:mips|registers~552        ; Lost fanout                            ;
+; mips_registers:mips|registers~553        ; Lost fanout                            ;
+; mips_registers:mips|registers~554        ; Lost fanout                            ;
+; mips_registers:mips|registers~555        ; Lost fanout                            ;
+; mips_registers:mips|registers~556        ; Lost fanout                            ;
+; mips_registers:mips|registers~557        ; Lost fanout                            ;
+; mips_registers:mips|registers~558        ; Lost fanout                            ;
+; mips_registers:mips|registers~559        ; Lost fanout                            ;
+; mips_registers:mips|registers~560        ; Lost fanout                            ;
+; mips_registers:mips|registers~561        ; Lost fanout                            ;
+; mips_registers:mips|registers~562        ; Lost fanout                            ;
+; mips_registers:mips|registers~563        ; Lost fanout                            ;
+; mips_registers:mips|registers~564        ; Lost fanout                            ;
+; mips_registers:mips|registers~565        ; Lost fanout                            ;
+; mips_registers:mips|registers~566        ; Lost fanout                            ;
+; mips_registers:mips|registers~567        ; Lost fanout                            ;
+; mips_registers:mips|registers~568        ; Lost fanout                            ;
+; mips_registers:mips|registers~569        ; Lost fanout                            ;
+; mips_registers:mips|registers~570        ; Lost fanout                            ;
+; mips_registers:mips|registers~571        ; Lost fanout                            ;
+; mips_registers:mips|registers~572        ; Lost fanout                            ;
+; mips_registers:mips|registers~573        ; Lost fanout                            ;
+; mips_registers:mips|registers~574        ; Lost fanout                            ;
+; mips_registers:mips|registers~575        ; Lost fanout                            ;
+; mips_registers:mips|registers~576        ; Lost fanout                            ;
+; mips_registers:mips|registers~577        ; Lost fanout                            ;
+; mips_registers:mips|registers~578        ; Lost fanout                            ;
+; mips_registers:mips|registers~579        ; Lost fanout                            ;
+; mips_registers:mips|registers~580        ; Lost fanout                            ;
+; mips_registers:mips|registers~581        ; Lost fanout                            ;
+; mips_registers:mips|registers~582        ; Lost fanout                            ;
+; mips_registers:mips|registers~583        ; Lost fanout                            ;
+; mips_registers:mips|registers~584        ; Lost fanout                            ;
+; mips_registers:mips|registers~585        ; Lost fanout                            ;
+; mips_registers:mips|registers~586        ; Lost fanout                            ;
+; mips_registers:mips|registers~587        ; Lost fanout                            ;
+; mips_registers:mips|registers~588        ; Lost fanout                            ;
+; mips_registers:mips|registers~589        ; Lost fanout                            ;
+; mips_registers:mips|registers~590        ; Lost fanout                            ;
+; mips_registers:mips|registers~591        ; Lost fanout                            ;
+; mips_registers:mips|registers~592        ; Lost fanout                            ;
+; mips_registers:mips|registers~593        ; Lost fanout                            ;
+; mips_registers:mips|registers~594        ; Lost fanout                            ;
+; mips_registers:mips|registers~595        ; Lost fanout                            ;
+; mips_registers:mips|registers~596        ; Lost fanout                            ;
+; mips_registers:mips|registers~597        ; Lost fanout                            ;
+; mips_registers:mips|registers~598        ; Lost fanout                            ;
+; mips_registers:mips|registers~599        ; Lost fanout                            ;
+; mips_registers:mips|registers~600        ; Lost fanout                            ;
+; mips_registers:mips|registers~601        ; Lost fanout                            ;
+; mips_registers:mips|registers~602        ; Lost fanout                            ;
+; mips_registers:mips|registers~603        ; Lost fanout                            ;
+; mips_registers:mips|registers~604        ; Lost fanout                            ;
+; mips_registers:mips|registers~605        ; Lost fanout                            ;
+; mips_registers:mips|registers~606        ; Lost fanout                            ;
+; mips_registers:mips|registers~607        ; Lost fanout                            ;
+; mips_registers:mips|registers~608        ; Lost fanout                            ;
+; mips_registers:mips|registers~609        ; Lost fanout                            ;
+; mips_registers:mips|registers~610        ; Lost fanout                            ;
+; mips_registers:mips|registers~611        ; Lost fanout                            ;
+; mips_registers:mips|registers~612        ; Lost fanout                            ;
+; mips_registers:mips|registers~613        ; Lost fanout                            ;
+; mips_registers:mips|registers~614        ; Lost fanout                            ;
+; mips_registers:mips|registers~615        ; Lost fanout                            ;
+; mips_registers:mips|registers~616        ; Lost fanout                            ;
+; mips_registers:mips|registers~617        ; Lost fanout                            ;
+; mips_registers:mips|registers~618        ; Lost fanout                            ;
+; mips_registers:mips|registers~619        ; Lost fanout                            ;
+; mips_registers:mips|registers~620        ; Lost fanout                            ;
+; mips_registers:mips|registers~621        ; Lost fanout                            ;
+; mips_registers:mips|registers~622        ; Lost fanout                            ;
+; mips_registers:mips|registers~623        ; Lost fanout                            ;
+; mips_registers:mips|registers~624        ; Lost fanout                            ;
+; mips_registers:mips|registers~625        ; Lost fanout                            ;
+; mips_registers:mips|registers~626        ; Lost fanout                            ;
+; mips_registers:mips|registers~627        ; Lost fanout                            ;
+; mips_registers:mips|registers~628        ; Lost fanout                            ;
+; mips_registers:mips|registers~629        ; Lost fanout                            ;
+; mips_registers:mips|registers~630        ; Lost fanout                            ;
+; mips_registers:mips|registers~631        ; Lost fanout                            ;
+; mips_registers:mips|registers~632        ; Lost fanout                            ;
+; mips_registers:mips|registers~633        ; Lost fanout                            ;
+; mips_registers:mips|registers~634        ; Lost fanout                            ;
+; mips_registers:mips|registers~635        ; Lost fanout                            ;
+; mips_registers:mips|registers~636        ; Lost fanout                            ;
+; mips_registers:mips|registers~637        ; Lost fanout                            ;
+; mips_registers:mips|registers~638        ; Lost fanout                            ;
+; mips_registers:mips|registers~639        ; Lost fanout                            ;
+; mips_registers:mips|registers~640        ; Lost fanout                            ;
+; mips_registers:mips|registers~641        ; Lost fanout                            ;
+; mips_registers:mips|registers~642        ; Lost fanout                            ;
+; mips_registers:mips|registers~643        ; Lost fanout                            ;
+; mips_registers:mips|registers~644        ; Lost fanout                            ;
+; mips_registers:mips|registers~645        ; Lost fanout                            ;
+; mips_registers:mips|registers~646        ; Lost fanout                            ;
+; mips_registers:mips|registers~647        ; Lost fanout                            ;
+; mips_registers:mips|registers~648        ; Lost fanout                            ;
+; mips_registers:mips|registers~649        ; Lost fanout                            ;
+; mips_registers:mips|registers~650        ; Lost fanout                            ;
+; mips_registers:mips|registers~651        ; Lost fanout                            ;
+; mips_registers:mips|registers~652        ; Lost fanout                            ;
+; mips_registers:mips|registers~653        ; Lost fanout                            ;
+; mips_registers:mips|registers~654        ; Lost fanout                            ;
+; mips_registers:mips|registers~655        ; Lost fanout                            ;
+; mips_registers:mips|registers~656        ; Lost fanout                            ;
+; mips_registers:mips|registers~657        ; Lost fanout                            ;
+; mips_registers:mips|registers~658        ; Lost fanout                            ;
+; mips_registers:mips|registers~659        ; Lost fanout                            ;
+; mips_registers:mips|registers~660        ; Lost fanout                            ;
+; mips_registers:mips|registers~661        ; Lost fanout                            ;
+; mips_registers:mips|registers~662        ; Lost fanout                            ;
+; mips_registers:mips|registers~663        ; Lost fanout                            ;
+; mips_registers:mips|registers~664        ; Lost fanout                            ;
+; mips_registers:mips|registers~665        ; Lost fanout                            ;
+; mips_registers:mips|registers~666        ; Lost fanout                            ;
+; mips_registers:mips|registers~667        ; Lost fanout                            ;
+; mips_registers:mips|registers~668        ; Lost fanout                            ;
+; mips_registers:mips|registers~669        ; Lost fanout                            ;
+; mips_registers:mips|registers~670        ; Lost fanout                            ;
+; mips_registers:mips|registers~671        ; Lost fanout                            ;
+; mips_registers:mips|registers~672        ; Lost fanout                            ;
+; mips_registers:mips|registers~673        ; Lost fanout                            ;
+; mips_registers:mips|registers~674        ; Lost fanout                            ;
+; mips_registers:mips|registers~675        ; Lost fanout                            ;
+; mips_registers:mips|registers~676        ; Lost fanout                            ;
+; mips_registers:mips|registers~677        ; Lost fanout                            ;
+; mips_registers:mips|registers~678        ; Lost fanout                            ;
+; mips_registers:mips|registers~679        ; Lost fanout                            ;
+; mips_registers:mips|registers~680        ; Lost fanout                            ;
+; mips_registers:mips|registers~681        ; Lost fanout                            ;
+; mips_registers:mips|registers~682        ; Lost fanout                            ;
+; mips_registers:mips|registers~683        ; Lost fanout                            ;
+; mips_registers:mips|registers~684        ; Lost fanout                            ;
+; mips_registers:mips|registers~685        ; Lost fanout                            ;
+; mips_registers:mips|registers~686        ; Lost fanout                            ;
+; mips_registers:mips|registers~687        ; Lost fanout                            ;
+; mips_registers:mips|registers~688        ; Lost fanout                            ;
+; mips_registers:mips|registers~689        ; Lost fanout                            ;
+; mips_registers:mips|registers~690        ; Lost fanout                            ;
+; mips_registers:mips|registers~691        ; Lost fanout                            ;
+; mips_registers:mips|registers~692        ; Lost fanout                            ;
+; mips_registers:mips|registers~693        ; Lost fanout                            ;
+; mips_registers:mips|registers~694        ; Lost fanout                            ;
+; mips_registers:mips|registers~695        ; Lost fanout                            ;
+; mips_registers:mips|registers~696        ; Lost fanout                            ;
+; mips_registers:mips|registers~697        ; Lost fanout                            ;
+; mips_registers:mips|registers~698        ; Lost fanout                            ;
+; mips_registers:mips|registers~699        ; Lost fanout                            ;
+; mips_registers:mips|registers~700        ; Lost fanout                            ;
+; mips_registers:mips|registers~701        ; Lost fanout                            ;
+; mips_registers:mips|registers~702        ; Lost fanout                            ;
+; mips_registers:mips|registers~703        ; Lost fanout                            ;
+; mips_registers:mips|registers~704        ; Lost fanout                            ;
+; mips_registers:mips|registers~705        ; Lost fanout                            ;
+; mips_registers:mips|registers~706        ; Lost fanout                            ;
+; mips_registers:mips|registers~707        ; Lost fanout                            ;
+; mips_registers:mips|registers~708        ; Lost fanout                            ;
+; mips_registers:mips|registers~709        ; Lost fanout                            ;
+; mips_registers:mips|registers~710        ; Lost fanout                            ;
+; mips_registers:mips|registers~711        ; Lost fanout                            ;
+; mips_registers:mips|registers~712        ; Lost fanout                            ;
+; mips_registers:mips|registers~713        ; Lost fanout                            ;
+; mips_registers:mips|registers~714        ; Lost fanout                            ;
+; mips_registers:mips|registers~715        ; Lost fanout                            ;
+; mips_registers:mips|registers~716        ; Lost fanout                            ;
+; mips_registers:mips|registers~717        ; Lost fanout                            ;
+; mips_registers:mips|registers~718        ; Lost fanout                            ;
+; mips_registers:mips|registers~719        ; Lost fanout                            ;
+; mips_registers:mips|registers~720        ; Lost fanout                            ;
+; mips_registers:mips|registers~721        ; Lost fanout                            ;
+; mips_registers:mips|registers~722        ; Lost fanout                            ;
+; mips_registers:mips|registers~723        ; Lost fanout                            ;
+; mips_registers:mips|registers~724        ; Lost fanout                            ;
+; mips_registers:mips|registers~725        ; Lost fanout                            ;
+; mips_registers:mips|registers~726        ; Lost fanout                            ;
+; mips_registers:mips|registers~727        ; Lost fanout                            ;
+; mips_registers:mips|registers~728        ; Lost fanout                            ;
+; mips_registers:mips|registers~729        ; Lost fanout                            ;
+; mips_registers:mips|registers~730        ; Lost fanout                            ;
+; mips_registers:mips|registers~731        ; Lost fanout                            ;
+; mips_registers:mips|registers~732        ; Lost fanout                            ;
+; mips_registers:mips|registers~733        ; Lost fanout                            ;
+; mips_registers:mips|registers~734        ; Lost fanout                            ;
+; mips_registers:mips|registers~735        ; Lost fanout                            ;
+; mips_registers:mips|registers~736        ; Lost fanout                            ;
+; mips_registers:mips|registers~737        ; Lost fanout                            ;
+; mips_registers:mips|registers~738        ; Lost fanout                            ;
+; mips_registers:mips|registers~739        ; Lost fanout                            ;
+; mips_registers:mips|registers~740        ; Lost fanout                            ;
+; mips_registers:mips|registers~741        ; Lost fanout                            ;
+; mips_registers:mips|registers~742        ; Lost fanout                            ;
+; mips_registers:mips|registers~743        ; Lost fanout                            ;
+; mips_registers:mips|registers~744        ; Lost fanout                            ;
+; mips_registers:mips|registers~745        ; Lost fanout                            ;
+; mips_registers:mips|registers~746        ; Lost fanout                            ;
+; mips_registers:mips|registers~747        ; Lost fanout                            ;
+; mips_registers:mips|registers~748        ; Lost fanout                            ;
+; mips_registers:mips|registers~749        ; Lost fanout                            ;
+; mips_registers:mips|registers~750        ; Lost fanout                            ;
+; mips_registers:mips|registers~751        ; Lost fanout                            ;
+; mips_registers:mips|registers~752        ; Lost fanout                            ;
+; mips_registers:mips|registers~753        ; Lost fanout                            ;
+; mips_registers:mips|registers~754        ; Lost fanout                            ;
+; mips_registers:mips|registers~755        ; Lost fanout                            ;
+; mips_registers:mips|registers~756        ; Lost fanout                            ;
+; mips_registers:mips|registers~757        ; Lost fanout                            ;
+; mips_registers:mips|registers~758        ; Lost fanout                            ;
+; mips_registers:mips|registers~759        ; Lost fanout                            ;
+; mips_registers:mips|registers~760        ; Lost fanout                            ;
+; mips_registers:mips|registers~761        ; Lost fanout                            ;
+; mips_registers:mips|registers~762        ; Lost fanout                            ;
+; mips_registers:mips|registers~763        ; Lost fanout                            ;
+; mips_registers:mips|registers~764        ; Lost fanout                            ;
+; mips_registers:mips|registers~765        ; Lost fanout                            ;
+; mips_registers:mips|registers~766        ; Lost fanout                            ;
+; mips_registers:mips|registers~767        ; Lost fanout                            ;
+; mips_registers:mips|registers~768        ; Lost fanout                            ;
+; mips_registers:mips|registers~769        ; Lost fanout                            ;
+; mips_registers:mips|registers~770        ; Lost fanout                            ;
+; mips_registers:mips|registers~771        ; Lost fanout                            ;
+; mips_registers:mips|registers~772        ; Lost fanout                            ;
+; mips_registers:mips|registers~773        ; Lost fanout                            ;
+; mips_registers:mips|registers~774        ; Lost fanout                            ;
+; mips_registers:mips|registers~775        ; Lost fanout                            ;
+; mips_registers:mips|registers~776        ; Lost fanout                            ;
+; mips_registers:mips|registers~777        ; Lost fanout                            ;
+; mips_registers:mips|registers~778        ; Lost fanout                            ;
+; mips_registers:mips|registers~779        ; Lost fanout                            ;
+; mips_registers:mips|registers~780        ; Lost fanout                            ;
+; mips_registers:mips|registers~781        ; Lost fanout                            ;
+; mips_registers:mips|registers~782        ; Lost fanout                            ;
+; mips_registers:mips|registers~783        ; Lost fanout                            ;
+; mips_registers:mips|registers~784        ; Lost fanout                            ;
+; mips_registers:mips|registers~785        ; Lost fanout                            ;
+; mips_registers:mips|registers~786        ; Lost fanout                            ;
+; mips_registers:mips|registers~787        ; Lost fanout                            ;
+; mips_registers:mips|registers~788        ; Lost fanout                            ;
+; mips_registers:mips|registers~789        ; Lost fanout                            ;
+; mips_registers:mips|registers~790        ; Lost fanout                            ;
+; mips_registers:mips|registers~791        ; Lost fanout                            ;
+; mips_registers:mips|registers~792        ; Lost fanout                            ;
+; mips_registers:mips|registers~793        ; Lost fanout                            ;
+; mips_registers:mips|registers~794        ; Lost fanout                            ;
+; mips_registers:mips|registers~795        ; Lost fanout                            ;
+; mips_registers:mips|registers~796        ; Lost fanout                            ;
+; mips_registers:mips|registers~797        ; Lost fanout                            ;
+; mips_registers:mips|registers~798        ; Lost fanout                            ;
+; mips_registers:mips|registers~799        ; Lost fanout                            ;
+; mips_registers:mips|registers~800        ; Lost fanout                            ;
+; mips_registers:mips|registers~801        ; Lost fanout                            ;
+; mips_registers:mips|registers~802        ; Lost fanout                            ;
+; mips_registers:mips|registers~803        ; Lost fanout                            ;
+; mips_registers:mips|registers~804        ; Lost fanout                            ;
+; mips_registers:mips|registers~805        ; Lost fanout                            ;
+; mips_registers:mips|registers~806        ; Lost fanout                            ;
+; mips_registers:mips|registers~807        ; Lost fanout                            ;
+; mips_registers:mips|registers~808        ; Lost fanout                            ;
+; mips_registers:mips|registers~809        ; Lost fanout                            ;
+; mips_registers:mips|registers~810        ; Lost fanout                            ;
+; mips_registers:mips|registers~811        ; Lost fanout                            ;
+; mips_registers:mips|registers~812        ; Lost fanout                            ;
+; mips_registers:mips|registers~813        ; Lost fanout                            ;
+; mips_registers:mips|registers~814        ; Lost fanout                            ;
+; mips_registers:mips|registers~815        ; Lost fanout                            ;
+; mips_registers:mips|registers~816        ; Lost fanout                            ;
+; mips_registers:mips|registers~817        ; Lost fanout                            ;
+; mips_registers:mips|registers~818        ; Lost fanout                            ;
+; mips_registers:mips|registers~819        ; Lost fanout                            ;
+; mips_registers:mips|registers~820        ; Lost fanout                            ;
+; mips_registers:mips|registers~821        ; Lost fanout                            ;
+; mips_registers:mips|registers~822        ; Lost fanout                            ;
+; mips_registers:mips|registers~823        ; Lost fanout                            ;
+; mips_registers:mips|registers~824        ; Lost fanout                            ;
+; mips_registers:mips|registers~825        ; Lost fanout                            ;
+; mips_registers:mips|registers~826        ; Lost fanout                            ;
+; mips_registers:mips|registers~827        ; Lost fanout                            ;
+; mips_registers:mips|registers~828        ; Lost fanout                            ;
+; mips_registers:mips|registers~829        ; Lost fanout                            ;
+; mips_registers:mips|registers~830        ; Lost fanout                            ;
+; mips_registers:mips|registers~831        ; Lost fanout                            ;
+; mips_registers:mips|registers~832        ; Lost fanout                            ;
+; mips_registers:mips|registers~833        ; Lost fanout                            ;
+; mips_registers:mips|registers~834        ; Lost fanout                            ;
+; mips_registers:mips|registers~835        ; Lost fanout                            ;
+; mips_registers:mips|registers~836        ; Lost fanout                            ;
+; mips_registers:mips|registers~837        ; Lost fanout                            ;
+; mips_registers:mips|registers~838        ; Lost fanout                            ;
+; mips_registers:mips|registers~839        ; Lost fanout                            ;
+; mips_registers:mips|registers~840        ; Lost fanout                            ;
+; mips_registers:mips|registers~841        ; Lost fanout                            ;
+; mips_registers:mips|registers~842        ; Lost fanout                            ;
+; mips_registers:mips|registers~843        ; Lost fanout                            ;
+; mips_registers:mips|registers~844        ; Lost fanout                            ;
+; mips_registers:mips|registers~845        ; Lost fanout                            ;
+; mips_registers:mips|registers~846        ; Lost fanout                            ;
+; mips_registers:mips|registers~847        ; Lost fanout                            ;
+; mips_registers:mips|registers~848        ; Lost fanout                            ;
+; mips_registers:mips|registers~849        ; Lost fanout                            ;
+; mips_registers:mips|registers~850        ; Lost fanout                            ;
+; mips_registers:mips|registers~851        ; Lost fanout                            ;
+; mips_registers:mips|registers~852        ; Lost fanout                            ;
+; mips_registers:mips|registers~853        ; Lost fanout                            ;
+; mips_registers:mips|registers~854        ; Lost fanout                            ;
+; mips_registers:mips|registers~855        ; Lost fanout                            ;
+; mips_registers:mips|registers~856        ; Lost fanout                            ;
+; mips_registers:mips|registers~857        ; Lost fanout                            ;
+; mips_registers:mips|registers~858        ; Lost fanout                            ;
+; mips_registers:mips|registers~859        ; Lost fanout                            ;
+; mips_registers:mips|registers~860        ; Lost fanout                            ;
+; mips_registers:mips|registers~861        ; Lost fanout                            ;
+; mips_registers:mips|registers~862        ; Lost fanout                            ;
+; mips_registers:mips|registers~863        ; Lost fanout                            ;
+; mips_registers:mips|registers~864        ; Lost fanout                            ;
+; mips_registers:mips|registers~865        ; Lost fanout                            ;
+; mips_registers:mips|registers~866        ; Lost fanout                            ;
+; mips_registers:mips|registers~867        ; Lost fanout                            ;
+; mips_registers:mips|registers~868        ; Lost fanout                            ;
+; mips_registers:mips|registers~869        ; Lost fanout                            ;
+; mips_registers:mips|registers~870        ; Lost fanout                            ;
+; mips_registers:mips|registers~871        ; Lost fanout                            ;
+; mips_registers:mips|registers~872        ; Lost fanout                            ;
+; mips_registers:mips|registers~873        ; Lost fanout                            ;
+; mips_registers:mips|registers~874        ; Lost fanout                            ;
+; mips_registers:mips|registers~875        ; Lost fanout                            ;
+; mips_registers:mips|registers~876        ; Lost fanout                            ;
+; mips_registers:mips|registers~877        ; Lost fanout                            ;
+; mips_registers:mips|registers~878        ; Lost fanout                            ;
+; mips_registers:mips|registers~879        ; Lost fanout                            ;
+; mips_registers:mips|registers~880        ; Lost fanout                            ;
+; mips_registers:mips|registers~881        ; Lost fanout                            ;
+; mips_registers:mips|registers~882        ; Lost fanout                            ;
+; mips_registers:mips|registers~883        ; Lost fanout                            ;
+; mips_registers:mips|registers~884        ; Lost fanout                            ;
+; mips_registers:mips|registers~885        ; Lost fanout                            ;
+; mips_registers:mips|registers~886        ; Lost fanout                            ;
+; mips_registers:mips|registers~887        ; Lost fanout                            ;
+; mips_registers:mips|registers~888        ; Lost fanout                            ;
+; mips_registers:mips|registers~889        ; Lost fanout                            ;
+; mips_registers:mips|registers~890        ; Lost fanout                            ;
+; mips_registers:mips|registers~891        ; Lost fanout                            ;
+; mips_registers:mips|registers~892        ; Lost fanout                            ;
+; mips_registers:mips|registers~893        ; Lost fanout                            ;
+; mips_registers:mips|registers~894        ; Lost fanout                            ;
+; mips_registers:mips|registers~895        ; Lost fanout                            ;
+; mips_registers:mips|registers~896        ; Lost fanout                            ;
+; mips_registers:mips|registers~897        ; Lost fanout                            ;
+; mips_registers:mips|registers~898        ; Lost fanout                            ;
+; mips_registers:mips|registers~899        ; Lost fanout                            ;
+; mips_registers:mips|registers~900        ; Lost fanout                            ;
+; mips_registers:mips|registers~901        ; Lost fanout                            ;
+; mips_registers:mips|registers~902        ; Lost fanout                            ;
+; mips_registers:mips|registers~903        ; Lost fanout                            ;
+; mips_registers:mips|registers~904        ; Lost fanout                            ;
+; mips_registers:mips|registers~905        ; Lost fanout                            ;
+; mips_registers:mips|registers~906        ; Lost fanout                            ;
+; mips_registers:mips|registers~907        ; Lost fanout                            ;
+; mips_registers:mips|registers~908        ; Lost fanout                            ;
+; mips_registers:mips|registers~909        ; Lost fanout                            ;
+; mips_registers:mips|registers~910        ; Lost fanout                            ;
+; mips_registers:mips|registers~911        ; Lost fanout                            ;
+; mips_registers:mips|registers~912        ; Lost fanout                            ;
+; mips_registers:mips|registers~913        ; Lost fanout                            ;
+; mips_registers:mips|registers~914        ; Lost fanout                            ;
+; mips_registers:mips|registers~915        ; Lost fanout                            ;
+; mips_registers:mips|registers~916        ; Lost fanout                            ;
+; mips_registers:mips|registers~917        ; Lost fanout                            ;
+; mips_registers:mips|registers~918        ; Lost fanout                            ;
+; mips_registers:mips|registers~919        ; Lost fanout                            ;
+; mips_registers:mips|registers~920        ; Lost fanout                            ;
+; mips_registers:mips|registers~921        ; Lost fanout                            ;
+; mips_registers:mips|registers~922        ; Lost fanout                            ;
+; mips_registers:mips|registers~923        ; Lost fanout                            ;
+; mips_registers:mips|registers~924        ; Lost fanout                            ;
+; mips_registers:mips|registers~925        ; Lost fanout                            ;
+; mips_registers:mips|registers~926        ; Lost fanout                            ;
+; mips_registers:mips|registers~927        ; Lost fanout                            ;
+; mips_registers:mips|registers~928        ; Lost fanout                            ;
+; mips_registers:mips|registers~929        ; Lost fanout                            ;
+; mips_registers:mips|registers~930        ; Lost fanout                            ;
+; mips_registers:mips|registers~931        ; Lost fanout                            ;
+; mips_registers:mips|registers~932        ; Lost fanout                            ;
+; mips_registers:mips|registers~933        ; Lost fanout                            ;
+; mips_registers:mips|registers~934        ; Lost fanout                            ;
+; mips_registers:mips|registers~935        ; Lost fanout                            ;
+; mips_registers:mips|registers~936        ; Lost fanout                            ;
+; mips_registers:mips|registers~937        ; Lost fanout                            ;
+; mips_registers:mips|registers~938        ; Lost fanout                            ;
+; mips_registers:mips|registers~939        ; Lost fanout                            ;
+; mips_registers:mips|registers~940        ; Lost fanout                            ;
+; mips_registers:mips|registers~941        ; Lost fanout                            ;
+; mips_registers:mips|registers~942        ; Lost fanout                            ;
+; mips_registers:mips|registers~943        ; Lost fanout                            ;
+; mips_registers:mips|registers~944        ; Lost fanout                            ;
+; mips_registers:mips|registers~945        ; Lost fanout                            ;
+; mips_registers:mips|registers~946        ; Lost fanout                            ;
+; mips_registers:mips|registers~947        ; Lost fanout                            ;
+; mips_registers:mips|registers~948        ; Lost fanout                            ;
+; mips_registers:mips|registers~949        ; Lost fanout                            ;
+; mips_registers:mips|registers~950        ; Lost fanout                            ;
+; mips_registers:mips|registers~951        ; Lost fanout                            ;
+; mips_registers:mips|registers~952        ; Lost fanout                            ;
+; mips_registers:mips|registers~953        ; Lost fanout                            ;
+; mips_registers:mips|registers~954        ; Lost fanout                            ;
+; mips_registers:mips|registers~955        ; Lost fanout                            ;
+; mips_registers:mips|registers~956        ; Lost fanout                            ;
+; mips_registers:mips|registers~957        ; Lost fanout                            ;
+; mips_registers:mips|registers~958        ; Lost fanout                            ;
+; mips_registers:mips|registers~959        ; Lost fanout                            ;
+; mips_registers:mips|registers~960        ; Lost fanout                            ;
+; mips_registers:mips|registers~961        ; Lost fanout                            ;
+; mips_registers:mips|registers~962        ; Lost fanout                            ;
+; mips_registers:mips|registers~963        ; Lost fanout                            ;
+; mips_registers:mips|registers~964        ; Lost fanout                            ;
+; mips_registers:mips|registers~965        ; Lost fanout                            ;
+; mips_registers:mips|registers~966        ; Lost fanout                            ;
+; mips_registers:mips|registers~967        ; Lost fanout                            ;
+; mips_registers:mips|registers~968        ; Lost fanout                            ;
+; mips_registers:mips|registers~969        ; Lost fanout                            ;
+; mips_registers:mips|registers~970        ; Lost fanout                            ;
+; mips_registers:mips|registers~971        ; Lost fanout                            ;
+; mips_registers:mips|registers~972        ; Lost fanout                            ;
+; mips_registers:mips|registers~973        ; Lost fanout                            ;
+; mips_registers:mips|registers~974        ; Lost fanout                            ;
+; mips_registers:mips|registers~975        ; Lost fanout                            ;
+; mips_registers:mips|registers~976        ; Lost fanout                            ;
+; mips_registers:mips|registers~977        ; Lost fanout                            ;
+; mips_registers:mips|registers~978        ; Lost fanout                            ;
+; mips_registers:mips|registers~979        ; Lost fanout                            ;
+; mips_registers:mips|registers~980        ; Lost fanout                            ;
+; mips_registers:mips|registers~981        ; Lost fanout                            ;
+; mips_registers:mips|registers~982        ; Lost fanout                            ;
+; mips_registers:mips|registers~983        ; Lost fanout                            ;
+; mips_registers:mips|registers~984        ; Lost fanout                            ;
+; mips_registers:mips|registers~985        ; Lost fanout                            ;
+; mips_registers:mips|registers~986        ; Lost fanout                            ;
+; mips_registers:mips|registers~987        ; Lost fanout                            ;
+; mips_registers:mips|registers~988        ; Lost fanout                            ;
+; mips_registers:mips|registers~989        ; Lost fanout                            ;
+; mips_registers:mips|registers~990        ; Lost fanout                            ;
+; mips_registers:mips|registers~991        ; Lost fanout                            ;
+; mips_registers:mips|registers~992        ; Lost fanout                            ;
+; mips_registers:mips|registers~993        ; Lost fanout                            ;
+; mips_registers:mips|registers~994        ; Lost fanout                            ;
+; mips_registers:mips|registers~995        ; Lost fanout                            ;
+; mips_registers:mips|registers~996        ; Lost fanout                            ;
+; mips_registers:mips|registers~997        ; Lost fanout                            ;
+; mips_registers:mips|registers~998        ; Lost fanout                            ;
+; mips_registers:mips|registers~999        ; Lost fanout                            ;
+; mips_registers:mips|registers~1000       ; Lost fanout                            ;
+; mips_registers:mips|registers~1001       ; Lost fanout                            ;
+; mips_registers:mips|registers~1002       ; Lost fanout                            ;
+; mips_registers:mips|registers~1003       ; Lost fanout                            ;
+; mips_registers:mips|registers~1004       ; Lost fanout                            ;
+; mips_registers:mips|registers~1005       ; Lost fanout                            ;
+; mips_registers:mips|registers~1006       ; Lost fanout                            ;
+; mips_registers:mips|registers~1007       ; Lost fanout                            ;
+; mips_registers:mips|registers~1008       ; Lost fanout                            ;
+; mips_registers:mips|registers~1009       ; Lost fanout                            ;
+; mips_registers:mips|registers~1010       ; Lost fanout                            ;
+; mips_registers:mips|registers~1011       ; Lost fanout                            ;
+; mips_registers:mips|registers~1012       ; Lost fanout                            ;
+; mips_registers:mips|registers~1013       ; Lost fanout                            ;
+; mips_registers:mips|registers~1014       ; Lost fanout                            ;
+; mips_registers:mips|registers~1015       ; Lost fanout                            ;
+; mips_registers:mips|registers~1016       ; Lost fanout                            ;
+; mips_registers:mips|registers~1017       ; Lost fanout                            ;
+; mips_registers:mips|registers~1018       ; Lost fanout                            ;
+; mips_registers:mips|registers~1019       ; Lost fanout                            ;
+; mips_registers:mips|registers~1020       ; Lost fanout                            ;
+; mips_registers:mips|registers~1021       ; Lost fanout                            ;
+; mips_registers:mips|registers~1022       ; Lost fanout                            ;
+; mips_registers:mips|registers~1023       ; Lost fanout                            ;
+; mips_registers:mips|registers~0          ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~1          ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~2          ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~3          ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~4          ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~5          ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~6          ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~7          ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~8          ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~9          ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~10         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~11         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~12         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~13         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~14         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~15         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~16         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~17         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~18         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~19         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~20         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~21         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~22         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~23         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~24         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~25         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~26         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~27         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~28         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~29         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~30         ; Stuck at GND due to stuck port data_in ;
+; mips_registers:mips|registers~31         ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1024 ;                                        ;
++------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux_2_x_1:muxc"                                                                                                                            ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                     ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; B    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "B[31..1]" will be connected to GND. ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu32:alu"                                                                          ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; C    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control_unit:signal"                                                                                                  ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                                                  ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; zeroExtend_signal ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; ALUop             ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_lcell_comb     ; 1                           ;
+;     normal            ; 1                           ;
+;         0 data inputs ; 1                           ;
+; boundary_port         ; 33                          ;
+;                       ;                             ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Wed Jan 18 16:51:05 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off proje4 -c proje4
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file xorop.v
+    Info (12023): Found entity 1: xorop File: C:/Users/ersel/Documents/proje/proje4/xorop.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file right_shifter.v
+    Info (12023): Found entity 1: right_shifter File: C:/Users/ersel/Documents/proje/proje4/right_shifter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file orop.v
+    Info (12023): Found entity 1: orop File: C:/Users/ersel/Documents/proje/proje4/orop.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file norop.v
+    Info (12023): Found entity 1: norop File: C:/Users/ersel/Documents/proje/proje4/norop.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_8_x_1.v
+    Info (12023): Found entity 1: mux_8_x_1 File: C:/Users/ersel/Documents/proje/proje4/mux_8_x_1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_2x1.v
+    Info (12023): Found entity 1: mux_2x1 File: C:/Users/ersel/Documents/proje/proje4/mux_2x1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_2_x_1.v
+    Info (12023): Found entity 1: mux_2_x_1 File: C:/Users/ersel/Documents/proje/proje4/mux_2_x_1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file left_shifter.v
+    Info (12023): Found entity 1: left_shifter File: C:/Users/ersel/Documents/proje/proje4/left_shifter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file full_adder.v
+    Info (12023): Found entity 1: full_adder File: C:/Users/ersel/Documents/proje/proje4/full_adder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file carry_ripple_adder_subtractor.v
+    Info (12023): Found entity 1: carry_ripple_adder_subtractor File: C:/Users/ersel/Documents/proje/proje4/carry_ripple_adder_subtractor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file andop2.v
+    Info (12023): Found entity 1: andop2 File: C:/Users/ersel/Documents/proje/proje4/andop2.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu32.v
+    Info (12023): Found entity 1: alu32 File: C:/Users/ersel/Documents/proje/proje4/alu32.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file mips_registers.v
+    Info (12023): Found entity 1: mips_registers File: C:/Users/ersel/Documents/proje/proje4/mips_registers.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbench.v
+    Info (12023): Found entity 1: testbench File: C:/Users/ersel/Documents/proje/proje4/testbench.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file concatane_32_bit.v
+    Info (12023): Found entity 1: concatane_32_bit File: C:/Users/ersel/Documents/proje/proje4/concatane_32_bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file extend_shampt.v
+    Info (12023): Found entity 1: extend_shamt File: C:/Users/ersel/Documents/proje/proje4/extend_shampt.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux3_bits.v
+    Info (12023): Found entity 1: mux3_bits File: C:/Users/ersel/Documents/proje/proje4/mux3_bits.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file instr_mem.v
+    Info (12023): Found entity 1: instr_mem File: C:/Users/ersel/Documents/proje/proje4/instr_mem.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mips32_single_cycle.v
+    Info (12023): Found entity 1: mips32_single_cycle File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file data_mem.v
+    Info (12023): Found entity 1: data_mem File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file zero_extend.v
+    Info (12023): Found entity 1: zero_extend File: C:/Users/ersel/Documents/proje/proje4/zero_extend.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sign_extend_imm.v
+    Info (12023): Found entity 1: sign_extend_imm File: C:/Users/ersel/Documents/proje/proje4/sign_extend_imm.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux5_bits.v
+    Info (12023): Found entity 1: mux5_bits File: C:/Users/ersel/Documents/proje/proje4/mux5_bits.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file nextpc.v
+    Info (12023): Found entity 1: nextPC File: C:/Users/ersel/Documents/proje/proje4/nextPC.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file jump_address.v
+    Info (12023): Found entity 1: jump_address File: C:/Users/ersel/Documents/proje/proje4/jump_address.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu_control.v
+    Info (12023): Found entity 1: alu_control File: C:/Users/ersel/Documents/proje/proje4/alu_control.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file control_unit.v
+    Info (12023): Found entity 1: control_unit File: C:/Users/ersel/Documents/proje/proje4/control_unit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file andop.v
+    Info (12023): Found entity 1: andop File: C:/Users/ersel/Documents/proje/proje4/andop.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at control_unit.v(16): created implicit net for "n4" File: C:/Users/ersel/Documents/proje/proje4/control_unit.v Line: 16
+Info (12127): Elaborating entity "mips32_single_cycle" for the top level hierarchy
+Info (12128): Elaborating entity "nextPC" for hierarchy "nextPC:pr" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 18
+Info (12128): Elaborating entity "instr_mem" for hierarchy "instr_mem:instructions" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 21
+Warning (10858): Verilog HDL warning at instr_mem.v(6): object instr_mem used but never assigned File: C:/Users/ersel/Documents/proje/proje4/instr_mem.v Line: 6
+Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:signal" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 25
+Warning (10034): Output port "signExtend_signal" at control_unit.v(5) has no driver File: C:/Users/ersel/Documents/proje/proje4/control_unit.v Line: 5
+Warning (10034): Output port "zeroExtend_signal" at control_unit.v(5) has no driver File: C:/Users/ersel/Documents/proje/proje4/control_unit.v Line: 5
+Warning (10034): Output port "jump_signal" at control_unit.v(5) has no driver File: C:/Users/ersel/Documents/proje/proje4/control_unit.v Line: 5
+Info (12128): Elaborating entity "mux5_bits" for hierarchy "mux5_bits:mx5" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 28
+Info (12128): Elaborating entity "mips_registers" for hierarchy "mips_registers:mips" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 29
+Info (12128): Elaborating entity "alu_control" for hierarchy "alu_control:cont" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 33
+Info (12128): Elaborating entity "mux_2x1" for hierarchy "alu_control:cont|mux_2x1:mx1" File: C:/Users/ersel/Documents/proje/proje4/alu_control.v Line: 42
+Info (12128): Elaborating entity "mux3_bits" for hierarchy "alu_control:cont|mux3_bits:mx3" File: C:/Users/ersel/Documents/proje/proje4/alu_control.v Line: 64
+Info (12128): Elaborating entity "mux_2_x_1" for hierarchy "mux_2_x_1:mx" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 35
+Info (12128): Elaborating entity "andop2" for hierarchy "mux_2_x_1:mx|andop2:and1" File: C:/Users/ersel/Documents/proje/proje4/mux_2_x_1.v Line: 10
+Info (12128): Elaborating entity "orop" for hierarchy "mux_2_x_1:mx|orop:or1" File: C:/Users/ersel/Documents/proje/proje4/mux_2_x_1.v Line: 12
+Info (12128): Elaborating entity "extend_shamt" for hierarchy "extend_shamt:e_shamt" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 36
+Info (12128): Elaborating entity "zero_extend" for hierarchy "zero_extend:zE" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 39
+Info (12128): Elaborating entity "sign_extend_imm" for hierarchy "sign_extend_imm:sE" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 40
+Info (12128): Elaborating entity "alu32" for hierarchy "alu32:alu" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 44
+Info (12128): Elaborating entity "carry_ripple_adder_subtractor" for hierarchy "alu32:alu|carry_ripple_adder_subtractor:call" File: C:/Users/ersel/Documents/proje/proje4/alu32.v Line: 13
+Info (12128): Elaborating entity "full_adder" for hierarchy "alu32:alu|carry_ripple_adder_subtractor:call|full_adder:fa" File: C:/Users/ersel/Documents/proje/proje4/carry_ripple_adder_subtractor.v Line: 15
+Info (12128): Elaborating entity "andop" for hierarchy "alu32:alu|andop:op1" File: C:/Users/ersel/Documents/proje/proje4/alu32.v Line: 15
+Info (12128): Elaborating entity "xorop" for hierarchy "alu32:alu|xorop:op3" File: C:/Users/ersel/Documents/proje/proje4/alu32.v Line: 17
+Info (12128): Elaborating entity "norop" for hierarchy "alu32:alu|norop:op4" File: C:/Users/ersel/Documents/proje/proje4/alu32.v Line: 18
+Info (12128): Elaborating entity "right_shifter" for hierarchy "alu32:alu|right_shifter:op5" File: C:/Users/ersel/Documents/proje/proje4/alu32.v Line: 22
+Info (12128): Elaborating entity "left_shifter" for hierarchy "alu32:alu|left_shifter:op6" File: C:/Users/ersel/Documents/proje/proje4/alu32.v Line: 23
+Info (12128): Elaborating entity "mux_8_x_1" for hierarchy "alu32:alu|mux_8_x_1:mux" File: C:/Users/ersel/Documents/proje/proje4/alu32.v Line: 24
+Info (12128): Elaborating entity "data_mem" for hierarchy "data_mem:data_memory" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 46
+Warning (10240): Verilog HDL Always Construct warning at data_mem.v(10): inferring latch(es) for variable "read_data", which holds its previous value in one or more paths through the always construct File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[0]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[1]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[2]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[3]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[4]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[5]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[6]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[7]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[8]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[9]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[10]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[11]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[12]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[13]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[14]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[15]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[16]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[17]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[18]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[19]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[20]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[21]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[22]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[23]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[24]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[25]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[26]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[27]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[28]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[29]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[30]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (10041): Inferred latch for "read_data[31]" at data_mem.v(10) File: C:/Users/ersel/Documents/proje/proje4/data_mem.v Line: 10
+Info (12128): Elaborating entity "concatane_32_bit" for hierarchy "concatane_32_bit:con" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 48
+Info (12128): Elaborating entity "jump_address" for hierarchy "jump_address:j" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 55
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "mips_registers:mips|registers" is uninferred due to asynchronous read logic File: C:/Users/ersel/Documents/proje/proje4/mips_registers.v Line: 8
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "result[0]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[1]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[2]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[3]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[4]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[5]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[6]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[7]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[8]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[9]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[10]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[11]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[12]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[13]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[14]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[15]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[16]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[17]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[18]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[19]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[20]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[21]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[22]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[23]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[24]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[25]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[26]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[27]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[28]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[29]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[30]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+    Warning (13410): Pin "result[31]" is stuck at GND File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 3
+Info (17049): 992 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/ersel/Documents/proje/proje4/output_files/proje4.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clock" File: C:/Users/ersel/Documents/proje/proje4/mips32_single_cycle.v Line: 2
+Info (21057): Implemented 33 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 32 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
+    Info: Peak virtual memory: 4806 megabytes
+    Info: Processing ended: Wed Jan 18 16:51:16 2023
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:19
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/ersel/Documents/proje/proje4/output_files/proje4.map.smsg.
+
+
